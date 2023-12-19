@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="project">
-            <nuxt-link class="img">
-                <nuxt-img src="rickroll.webp" />
+            <nuxt-link to="/project">
+                <nuxt-img class="img" src="rickroll.webp" />
             </nuxt-link>
         </div>
         <div class="frame">
@@ -17,11 +17,6 @@
     </div>
 </template>
 <style lang="scss" scoped>
-img {
-    height: 100%;
-    object-fit: cover;
-}
-
 .container {
     display: flex;
     justify-content: center;
@@ -29,15 +24,41 @@ img {
     position: relative;
     width: 160px;
     height: 160px;
-    background-color: lightgray;
+
+    background-color: white;
 
     .project {
-        display: flex;
         position: relative;
+        display: flex;
         z-index: 1;
         height: 80%;
         width: 80%;
-        background-color: white;
+        background-color: rgb(45, 45, 45);
+
+        &::after {
+            z-index: -1;
+            position: absolute;
+            bottom: 0;
+            color: white;
+            padding: 8px 4px;
+            content: 'Lol get Rickrolled';
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+
+
+            &:hover {
+                transition: .5s ease-in-out;
+                transform: rotate(360deg) translate(0px, -40px);
+
+            }
+
+        }
+
+
     }
 
     .frame {
