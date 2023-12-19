@@ -5,14 +5,18 @@ export default defineNuxtConfig({
     buildAssetsDir: 'assets'
   },
 
+  css: ["@/assets/scss/global.scss"],
   devtools: { enabled: true },
- vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/scss/vars/_index.scss" as *;',
-        },
-      },
-    },
-  },
+
+  vite: {
+     css: {
+       preprocessorOptions: {
+         scss: {
+           additionalData: '@use "@/assets/scss/vars/_index.scss" as *;',
+         },
+       },
+     },
+   },
+
+  modules: ["@nuxt/image"]
 })
